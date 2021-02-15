@@ -14,7 +14,7 @@
 
 <header >
 	<div class="todo__title mwfix">
-		<div class="todo__title--style">
+				<div class="todo__title--style">
 			<h1>Organize it all
 				with To do list</h1>
 		</div>
@@ -25,6 +25,7 @@
 			</div>
 		</div>
 	</div>
+	
 </header>
 <main>
 	<div class="todo__list mwfix">
@@ -48,18 +49,22 @@
 		</div>
 	<div class="todo__modal__input">
 		<form id="todo__form" class="todo__form--style">
+			<!-- <div role="textbox" contenteditable="true" aria-multiline="true"></div> -->
 			<div class="todo__input--position">
-				<input type="text" autofocus class="todo__modal__input--style" id="task" placeholder="Add your task">
+				<input type="text" class="todo__modal__input--style" id="task" placeholder="Add your task">
 			</div>
 			<div class="todo__modal__btn">
 				<div class="btn__modal__cancel">
-					<button class="btn__modal__cancel--style" data-cancel="cancel">Cancel</button>						
+					<button class="btn__modal__cancel--style" data-type="cancel">Cancel</button>						
 				</div>
 				<div class="btn__modal__save">
-					<button class="btn__modal__save--style" data-save="save">Save task</button>
+					<button class="btn__modal__save--style" data-type="save">Save task</button>
 				</div>
 			</div>
 		</form>
+	</div>
+	<div class="modal__alert">
+		<h3>insira uma tarefa</h3>
 	</div>
 </div>
 	

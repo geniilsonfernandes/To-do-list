@@ -178,27 +178,69 @@ header {
 /*modal*/
 
 .todo__modal{
-	background: blue;
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	top: 30%;
+	top: -100%;
 	width: 400px;
-/*	padding: 20px;*/
-	background: #FBFBFB;
 	box-shadow: 1px 1px 50px rgba(35, 41, 57, 0.17);
 	border-radius: 15px;
-	visibility: hidden;
-	opacity: 0;
+	transition: all cubic-bezier(.23, 1.18, .89, .59) 200ms;
 }
-.modal__active{
+.modal__alert{
+	position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+    background: white;
+    padding: 6px 18px;
+    border-radius: 25px;
+    z-index: -10;
+	/* visibility: hidden;
+	opacity: 0; */
+	transition: all cubic-bezier(.23, 1.18, .89, .59) 200ms;
+}
+.modal__alert--on{
+	/* animation: alert;
+	animation-duration: 1s;
+	animation-delay: 5s; */
+	top: -40px;
 	visibility: visible;
 	opacity: 1;
+ }
+ /*
+@keyframes alert {
+	0%   {
+		top: -40px;
+		visibility: visible;
+		opacity: 1;
+	}
+	100% {
+		visibility: hidden;
+		opacity: 0;
+		top: 10px;
+	}
+  } */
+.modal__alert h3{
+	color: #ec5858;
+	font-size: 12px;
+}
+.modal__alert--active{
+	top: -39px;
+}
+.modal__active{
+	top: 30px;
+	/* visibility: visible;
+	opacity: 1; */
 }
 .todo__form--style{
 	width: 100%;
 /*	padding: 25px 3% 0;*/
 	
+}
+.todo__modal__tittle{
+	background:#FBFBFB;
+    border-radius: 25px 25px 0 0;
 }
 .todo__modal__tittle h2{
 	padding: 20px 20px;
@@ -209,6 +251,10 @@ header {
 }
 .todo__input--position{
 	padding: 0 25px;
+}
+.todo__modal__input{
+	background:#FBFBFB;
+    border-radius: 0 0 25px 25px ;
 }
 .todo__modal__input--style{
 	outline: none;
