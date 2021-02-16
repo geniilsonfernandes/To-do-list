@@ -5,9 +5,7 @@
 
 // task array
 let taskUser = [
-    {tarefa: "1", data: ""},
-    {tarefa: "2", data: ""},
-    {tarefa: "3", data: ""}
+    
 ]
 //// DOM colection
 // formulario
