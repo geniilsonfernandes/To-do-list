@@ -45,10 +45,10 @@ window.addEventListener('click',(e)=>{
 window.addEventListener('keydown',(e)=>{
     console.log(e.target.value=='');
     tasks = document.getElementById('task');
-    if  (e.code=='KeyA'){
-            modalFunction.openModal();
-            task.focus();
-    }
+    // if  (e.code=='KeyA'){
+    //         modalFunction.openModal();
+    //         task.focus();
+    // }
     // if (e.target.dataset.type=='cancel'){
     //     modalFunction.closerModal();
     //     tasks.value = '';
