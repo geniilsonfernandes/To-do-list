@@ -8,6 +8,17 @@ let taskUser = [
     
 ]
 //// DOM colection
+
+
+
+
+
+
+
+
+
+
+
 // formulario
 const form = document.getElementById('todo__form');
 //modal
@@ -23,35 +34,34 @@ const ToDoOutput = document.querySelector('.todo__list__item');
 const alert = document.querySelector('.modal__alert');
 const task = document.getElementById('task');
 // modal functions
+
 // open modal
+
 openModal.forEach((list)=>{
     list.addEventListener('click',()=>{
         modalFunction.openModal();
-        console.log(task);
         task.focus();
     });
 });
+
 window.addEventListener('load',()=>{
     HTMLliFormatter.appInit();
 })
+
 window.addEventListener('click',(e)=>{
     if(e.target.id=='task__remove'){
 
         HTMLliFormatter.removeData(e.target.dataset.remove);
     }
 })
+
 window.addEventListener('keydown',(e)=>{
+
     console.log(e.target.value=='');
     tasks = document.getElementById('task');
-    // if  (e.code=='KeyA'){
-    //         modalFunction.openModal();
-    //         task.focus();
-    // }
-    // if (e.target.dataset.type=='cancel'){
-    //     modalFunction.closerModal();
-    //     tasks.value = '';
-    // }
+    
     if (e.code == 'Enter' && modalFunction.modalOpen==true ) {
+        
         if(tasks.value==='' || e.target.value==''){
             alert.classList.add('modal__alert--on');
             modalFunction.removeAlert();
@@ -60,12 +70,16 @@ window.addEventListener('keydown',(e)=>{
             modalFunction.SaveDate(tasks.value);
             tasks.value = '';
         };
+     
     };
+
     if (e.code == 'Escape' && modalFunction.modalOpen==true) {
         modalFunction.closerModal();
         tasks.value = '';
     }
+
 });
+
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
     tasks = document.getElementById('task');
@@ -110,6 +124,8 @@ const modalFunction = {
         HTMLliFormatter.Newtask();
     }
 };
+
+
 //Dom insertion
 const HTMLliFormatter = {
     appInit(){
