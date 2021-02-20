@@ -129,6 +129,13 @@ header {
 	width: 25px;
 	height: 25px;
 	position: relative;
+	transition: all cubic-bezier(.23, 1.18, .89, .59) 300ms;
+}
+.list__item__check img:hover {
+	content: '';
+	background-image: url('/svg/on/check__inside.svg');
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 
 .list__item__content {
