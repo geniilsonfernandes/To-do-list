@@ -1,24 +1,18 @@
-
-
-
-
-
 // task array
-let taskUser = [
-    
-]
+
+// storage
+// pega os dados do storage
+const localStorageTasks = JSON.parse(localStorage.getItem('TaskUser'))
+// verifica o estado  dele
+let listaDetarefas = localStorage.getItem('TaskUser') !== null ? localStorageTasks : [];
+// update do storage
+function localStorageUpdate(){
+    localStorage.setItem('TaskUser', JSON.stringify(listaDetarefas));
+}
+
+
+
 //// DOM colection
-
-
-
-
-
-
-
-
-
-
-
 // formulario
 const form = document.getElementById('todo__form');
 //modal
@@ -56,8 +50,6 @@ window.addEventListener('click',(e)=>{
 })
 
 window.addEventListener('keydown',(e)=>{
-
-    console.log(e.target.value=='');
     tasks = document.getElementById('task');
     
     if (e.code == 'Enter' && modalFunction.modalOpen==true ) {
@@ -117,10 +109,11 @@ const modalFunction = {
         }, 3000)
     },
     SaveDate(value){
-        taskUser.push({
+        listaDetarefas.push({
             tarefa:value,
             data: ''
         });
+        localStorageUpdate();
         HTMLliFormatter.Newtask();
     }
 };
@@ -129,17 +122,20 @@ const modalFunction = {
 //Dom insertion
 const HTMLliFormatter = {
     appInit(){
+        localStorageUpdate()
         HTMLliFormatter.Newtask();
     },
     removeData(i){
-        taskUser.splice(i,1)
+        listaDetarefas.splice(i,1)
         HTMLliFormatter.appInit();
     },
     Newtask(){
-    newli = taskUser.map((Newtask,index)=>
+    newli = listaDetarefas.map((Newtask,index)=>
      `<li>
          <div class="list__item--style">
-            <div class="list__item__check" data-remove="${index}"></div>
+            <div class="list__item__check" >
+                <img src="./svg/on/check.svg" alt="" data-remove="${index}" id="task__remove" alt="">
+            </div>
             <div class="list__item__content">
             <p>
                 ${Newtask.tarefa}
@@ -151,11 +147,7 @@ const HTMLliFormatter = {
         </div>
      </li>`
     ).join('');
-    
-    console.log(newli);
-    
     ToDoOutput.innerHTML = newli
-
     //HTMLliFormatter.htmlInsert(taskli);
     },
     htmlInsert(value){
